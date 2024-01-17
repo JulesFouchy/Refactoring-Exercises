@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "Game.hpp"
+#include "time.h"
 
 static bool notAWinner;
 
