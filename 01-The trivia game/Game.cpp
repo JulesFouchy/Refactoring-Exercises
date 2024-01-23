@@ -32,7 +32,7 @@ bool Game::isPlayable()
     return howManyPlayers() >= 2;
 }
 
-void print_all_player_names(const std::vector<std::string>& players)
+void printAllPlayerNames(const std::vector<std::string>& players)
 {
     for (const std::string& player_name : players)
     {
@@ -44,7 +44,7 @@ bool Game::add(const std::string& playerName)
 {
     fmt::print("{} was added\n", playerName);
     fmt::print("They are player number {}\n", players.size() + 1);
-    print_all_player_names(players);
+    printAllPlayerNames(players);
 
     players.push_back(playerName);
     places.push_back(0);
