@@ -21,8 +21,6 @@ int random_int(int min, int max)
     return distribution(random_generator());
 }
 
-static bool notAWinner;
-
 int main()
 {
     Game aGame{};
@@ -31,6 +29,7 @@ int main()
     aGame.add("Pat");
     aGame.add("Sue");
 
+    bool notAWinner;
     do
     {
         aGame.roll(random_int(1, 5));
