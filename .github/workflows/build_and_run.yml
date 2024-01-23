@@ -84,4 +84,4 @@ jobs:
           buildDirectory: ${{github.workspace}}/build
 
       - name: Run
-        run: \"${{github.workspace}}/build/${{env.exe_folder}}/${{env.cmake_target}}\"
+        run: "${{github.workspace}}/build/${{env.exe_folder}}/${{env.cmake_target}}"
