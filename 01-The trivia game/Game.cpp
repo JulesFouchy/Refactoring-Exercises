@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define QUESTIONS_COUNT 50
+static constexpr int QUESTIONS_COUNT{50};
 
 Game::Game()
     : places{}, purses{}, currentPlayer(0)
