@@ -2,9 +2,7 @@ name: Build and run
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches: '*'
 
 env:
   cmake_configure_args: ""
