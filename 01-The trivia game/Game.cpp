@@ -28,7 +28,7 @@ std::string Game::createRockQuestion(int index)
 
 bool Game::isPlayable()
 {
-    return (howManyPlayers() >= 2);
+    return howManyPlayers() >= 2;
 }
 
 void print_all_player_names(const std::vector<std::string>& players)
@@ -196,5 +196,5 @@ bool Game::wrongAnswer()
 
 bool Game::didPlayerWin()
 {
-    return !(purses[currentPlayer] == 6);
+    return purses[currentPlayer] != 6;
 }
