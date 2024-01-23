@@ -1,5 +1,4 @@
 #include <iostream>
-#include <list>
 #include <vector>
 using namespace std;
 
@@ -15,10 +14,10 @@ private:
 
     std::vector<bool> inPenaltyBox;
 
-    list<string> popQuestions;
-    list<string> scienceQuestions;
-    list<string> sportsQuestions;
-    list<string> rockQuestions;
+    std::vector<string> popQuestions;
+    std::vector<string> scienceQuestions;
+    std::vector<string> sportsQuestions;
+    std::vector<string> rockQuestions;
 
     unsigned int currentPlayer;
     bool         isGettingOutOfPenaltyBox;

@@ -8,7 +8,7 @@ static constexpr int QUESTIONS_COUNT{50};
 Game::Game()
     : places{}, purses{}, currentPlayer(0)
 {
-    for (int i = 0; i < QUESTIONS_COUNT; i++)
+    for (int i = QUESTIONS_COUNT - 1; i >= 0; i--)
     {
         const std::string str0 = fmt::format("Pop Question {}", i);
         popQuestions.push_back(str0);
@@ -102,23 +102,23 @@ void Game::askQuestion()
 {
     if (currentCategory() == "Pop")
     {
-        fmt::print("{}\n", popQuestions.front());
-        popQuestions.pop_front();
+        fmt::print("{}\n", popQuestions.back());
+        popQuestions.pop_back();
     }
     if (currentCategory() == "Science")
     {
-        fmt::print("{}\n", scienceQuestions.front());
-        scienceQuestions.pop_front();
+        fmt::print("{}\n", scienceQuestions.back());
+        scienceQuestions.pop_back();
     }
     if (currentCategory() == "Sports")
     {
-        fmt::print("{}\n", sportsQuestions.front());
-        sportsQuestions.pop_front();
+        fmt::print("{}\n", sportsQuestions.back());
+        sportsQuestions.pop_back();
     }
     if (currentCategory() == "Rock")
     {
-        fmt::print("{}\n", rockQuestions.front());
-        rockQuestions.pop_front();
+        fmt::print("{}\n", rockQuestions.back());
+        rockQuestions.pop_back();
     }
 }
 
