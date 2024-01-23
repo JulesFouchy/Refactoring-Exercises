@@ -50,7 +50,7 @@ void print_all_player_names(const vector<string>& players)
     }
 }
 
-bool Game::add(string playerName)
+bool Game::add(const string& playerName)
 {
     printf("%s was added\n", playerName.c_str());
     printf("They are player number %zu\n", players.size() + 1);

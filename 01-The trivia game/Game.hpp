@@ -27,7 +27,7 @@ public:
     Game();
     string createRockQuestion(int index);
     bool   isPlayable();
-    bool   add(string playerName);
+    bool   add(const string& playerName);
 
     int  howManyPlayers();
     void roll(int roll);
