@@ -44,9 +44,9 @@ bool Game::isPlayable()
 
 void print_all_player_names(vector<string>* players)
 {
-    for (int i = 0; i < players->size(); ++i)
+    for (const std::string& player_name : *players)
     {
-        printf("They join %s.\n", (*players)[i].c_str());
+        printf("They join %s.\n", player_name.c_str());
     }
 }
 
