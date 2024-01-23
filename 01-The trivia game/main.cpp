@@ -1,12 +1,30 @@
-#include <stdlib.h>
+#include <random>
 #include "Game.hpp"
-#include "time.h"
+
+auto& random_generator()
+{
+    thread_local std::default_random_engine gen{std::random_device{}()};
+    return gen;
+}
+
+/// Returns a random float between `min` and `max`.
+float random_float(float min, float max)
+{
+    auto distribution = std::uniform_real_distribution<float>{min, max};
+    return distribution(random_generator());
+}
+
+/// Returns a random int between `min` (included) and `max` (included).
+int random_int(int min, int max)
+{
+    auto distribution = std::uniform_int_distribution<int>{min, max};
+    return distribution(random_generator());
+}
 
 static bool notAWinner;
 
 int main()
 {
-    srand(time(NULL));
     Game aGame{};
 
     aGame.add("Chet");
@@ -15,9 +33,9 @@ int main()
 
     do
     {
-        aGame.roll(rand() % 5 + 1);
+        aGame.roll(random_int(1, 5));
 
-        if (rand() % 9 == 7)
+        if (random_int(0, 8) == 7)
         {
             notAWinner = aGame.wrongAnswer();
         }
