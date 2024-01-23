@@ -49,9 +49,9 @@ bool Game::add(const string& playerName)
     print_all_player_names(players);
 
     players.push_back(playerName);
-    places[howManyPlayers()]       = 0;
-    purses[howManyPlayers()]       = 0;
-    inPenaltyBox[howManyPlayers()] = false;
+    places.push_back(0);
+    purses.push_back(0);
+    inPenaltyBox.push_back(false);
     return true;
 }
 

@@ -10,10 +10,10 @@ class Game {
 private:
     vector<string> players;
 
-    int places[6];
-    int purses[6];
+    std::vector<int> places;
+    std::vector<int> purses;
 
-    bool inPenaltyBox[6];
+    std::vector<bool> inPenaltyBox;
 
     list<string> popQuestions;
     list<string> scienceQuestions;
