@@ -52,7 +52,7 @@ bool Game::add(const std::string& playerName)
     return true;
 }
 
-int Game::howManyPlayers()
+size_t Game::howManyPlayers()
 {
     return players.size();
 }

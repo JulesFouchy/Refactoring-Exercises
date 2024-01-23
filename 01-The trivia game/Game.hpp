@@ -25,8 +25,8 @@ public:
     bool        isPlayable();
     bool        add(const std::string& playerName);
 
-    int  howManyPlayers();
-    void roll(int roll);
+    size_t howManyPlayers();
+    void   roll(int roll);
 
 private:
     void        askQuestion();
