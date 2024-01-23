@@ -42,7 +42,7 @@ bool Game::isPlayable()
     return (howManyPlayers() >= 2);
 }
 
-void print_all_player_names(vector<string>& players)
+void print_all_player_names(const vector<string>& players)
 {
     for (const std::string& player_name : players)
     {
