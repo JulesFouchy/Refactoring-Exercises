@@ -10,6 +10,7 @@ env:
   cmake_configure_args: ""
   cmakelists_folder: .
   cmake_target: The_trivia_game
+  exe_folder: 01-The trivia game
 
 jobs:
   build-and-run:
@@ -83,4 +84,4 @@ jobs:
           buildDirectory: ${{github.workspace}}/build
 
       - name: Run
-        run: ${{github.workspace}}/build/${{env.cmake_target}}
+        run: ${{github.workspace}}/build/${{env.exe_folder}}/${{env.cmake_target}}
