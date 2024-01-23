@@ -1,39 +1,38 @@
-#include <iostream>
+#include <string>
 #include <vector>
-using namespace std;
 
 #ifndef GAME_H_
 #define GAME_H_
 
 class Game {
 private:
-    vector<string> players;
+    std::vector<std::string> players;
 
     std::vector<int> places;
     std::vector<int> purses;
 
     std::vector<bool> inPenaltyBox;
 
-    std::vector<string> popQuestions;
-    std::vector<string> scienceQuestions;
-    std::vector<string> sportsQuestions;
-    std::vector<string> rockQuestions;
+    std::vector<std::string> popQuestions;
+    std::vector<std::string> scienceQuestions;
+    std::vector<std::string> sportsQuestions;
+    std::vector<std::string> rockQuestions;
 
     unsigned int currentPlayer;
     bool         isGettingOutOfPenaltyBox;
 
 public:
     Game();
-    string createRockQuestion(int index);
-    bool   isPlayable();
-    bool   add(const string& playerName);
+    std::string createRockQuestion(int index);
+    bool        isPlayable();
+    bool        add(const std::string& playerName);
 
     int  howManyPlayers();
     void roll(int roll);
 
 private:
-    void   askQuestion();
-    string currentCategory();
+    void        askQuestion();
+    std::string currentCategory();
 
 public:
     bool wasCorrectlyAnswered();

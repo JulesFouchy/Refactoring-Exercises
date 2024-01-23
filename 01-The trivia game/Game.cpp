@@ -1,8 +1,6 @@
 #include "Game.hpp"
 #include <fmt/format.h>
 
-using namespace std;
-
 static constexpr int QUESTIONS_COUNT{50};
 
 Game::Game()
@@ -23,7 +21,7 @@ Game::Game()
     }
 }
 
-string Game::createRockQuestion(int index)
+std::string Game::createRockQuestion(int index)
 {
     const std::string indexStr = fmt::format("Rock Question {}", index);
     return indexStr;
@@ -34,7 +32,7 @@ bool Game::isPlayable()
     return (howManyPlayers() >= 2);
 }
 
-void print_all_player_names(const vector<string>& players)
+void print_all_player_names(const std::vector<std::string>& players)
 {
     for (const std::string& player_name : players)
     {
@@ -42,7 +40,7 @@ void print_all_player_names(const vector<string>& players)
     }
 }
 
-bool Game::add(const string& playerName)
+bool Game::add(const std::string& playerName)
 {
     fmt::print("{} was added\n", playerName);
     fmt::print("They are player number {}\n", players.size() + 1);
@@ -122,7 +120,7 @@ void Game::askQuestion()
     }
 }
 
-string Game::currentCategory()
+std::string Game::currentCategory()
 {
     if (places[currentPlayer] == 0)
         return "Pop";
