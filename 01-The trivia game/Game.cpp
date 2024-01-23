@@ -1,8 +1,5 @@
 #include "Game.hpp"
 #include <fmt/format.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
 
 using namespace std;
 
@@ -41,14 +38,14 @@ void print_all_player_names(const vector<string>& players)
 {
     for (const std::string& player_name : players)
     {
-        printf("They join %s.\n", player_name.c_str());
+        fmt::print("They join {}.\n", player_name);
     }
 }
 
 bool Game::add(const string& playerName)
 {
-    printf("%s was added\n", playerName.c_str());
-    printf("They are player number %zu\n", players.size() + 1);
+    fmt::print("{} was added\n", playerName);
+    fmt::print("They are player number {}\n", players.size() + 1);
     print_all_player_names(players);
 
     players.push_back(playerName);
@@ -65,8 +62,8 @@ int Game::howManyPlayers()
 
 void Game::roll(int roll)
 {
-    cout << players[currentPlayer] << " is the current player" << endl;
-    cout << "They have rolled a " << roll << endl;
+    fmt::print("{} is the current player\n", players[currentPlayer]);
+    fmt::print("They have rolled a {}\n", roll);
 
     if (inPenaltyBox[currentPlayer])
     {
@@ -74,18 +71,18 @@ void Game::roll(int roll)
         {
             isGettingOutOfPenaltyBox = true;
 
-            cout << players[currentPlayer] << " is getting out of the penalty box" << endl;
+            fmt::print("{} is getting out of the penalty box\n", players[currentPlayer]);
             places[currentPlayer] = places[currentPlayer] + roll;
             if (places[currentPlayer] > 11)
                 places[currentPlayer] = places[currentPlayer] - 12;
 
-            cout << players[currentPlayer] << "'s new location is " << places[currentPlayer] << endl;
-            cout << "The category is " << currentCategory() << endl;
+            fmt::print("{}'s new location is {}\n", players[currentPlayer], places[currentPlayer]);
+            fmt::print("The category is {}\n", currentCategory());
             askQuestion();
         }
         else
         {
-            cout << players[currentPlayer] << " is not getting out of the penalty box" << endl;
+            fmt::print("{} is not getting out of the penalty box\n", players[currentPlayer]);
             isGettingOutOfPenaltyBox = false;
         }
     }
@@ -95,8 +92,8 @@ void Game::roll(int roll)
         if (places[currentPlayer] > 11)
             places[currentPlayer] = places[currentPlayer] - 12;
 
-        cout << players[currentPlayer] << "'s new location is " << places[currentPlayer] << endl;
-        cout << "The category is " << currentCategory() << endl;
+        fmt::print("{}'s new location is {}\n", players[currentPlayer], places[currentPlayer]);
+        fmt::print("The category is {}\n", currentCategory());
         askQuestion();
     }
 }
@@ -105,22 +102,22 @@ void Game::askQuestion()
 {
     if (currentCategory() == "Pop")
     {
-        cout << popQuestions.front() << endl;
+        fmt::print("{}\n", popQuestions.front());
         popQuestions.pop_front();
     }
     if (currentCategory() == "Science")
     {
-        cout << scienceQuestions.front() << endl;
+        fmt::print("{}\n", scienceQuestions.front());
         scienceQuestions.pop_front();
     }
     if (currentCategory() == "Sports")
     {
-        cout << sportsQuestions.front() << endl;
+        fmt::print("{}\n", sportsQuestions.front());
         sportsQuestions.pop_front();
     }
     if (currentCategory() == "Rock")
     {
-        cout << rockQuestions.front() << endl;
+        fmt::print("{}\n", rockQuestions.front());
         rockQuestions.pop_front();
     }
 }
@@ -154,12 +151,9 @@ bool Game::wasCorrectlyAnswered()
     {
         if (isGettingOutOfPenaltyBox)
         {
-            cout << "Answer was correct!!!!" << endl;
+            fmt::print("Answer was correct!!!!\n");
             purses[currentPlayer]++;
-            cout << players[currentPlayer]
-                 << " now has "
-                 << purses[currentPlayer]
-                 << " Gold Coins." << endl;
+            fmt::print("{} now has {} Gold Coins.\n", players[currentPlayer], purses[currentPlayer]);
 
             bool winner = didPlayerWin();
             currentPlayer++;
@@ -178,12 +172,9 @@ bool Game::wasCorrectlyAnswered()
     }
     else
     {
-        cout << "Answer was corrent!!!!" << endl;
+        fmt::print("Answer was corrent!!!!\n");
         purses[currentPlayer]++;
-        cout << players[currentPlayer]
-             << " now has "
-             << purses[currentPlayer]
-             << " Gold Coins." << endl;
+        fmt::print("{} now has {} Gold Coins.\n", players[currentPlayer], purses[currentPlayer]);
 
         bool winner = didPlayerWin();
         currentPlayer++;
@@ -196,8 +187,8 @@ bool Game::wasCorrectlyAnswered()
 
 bool Game::wrongAnswer()
 {
-    cout << "Question was incorrectly answered" << endl;
-    cout << players[currentPlayer] + " was sent to the penalty box" << endl;
+    fmt::print("Question was incorrectly answered\n");
+    fmt::print("{} was sent to the penalty box\n", players[currentPlayer]);
     inPenaltyBox[currentPlayer] = true;
 
     currentPlayer++;
