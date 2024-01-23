@@ -4,20 +4,20 @@
 
 class Game {
 private:
-    std::vector<std::string> players;
+    std::vector<std::string> players{};
 
-    std::vector<int> places;
-    std::vector<int> purses;
+    std::vector<int> places{};
+    std::vector<int> purses{};
 
-    std::vector<bool> inPenaltyBox;
+    std::vector<bool> inPenaltyBox{};
 
-    std::vector<std::string> popQuestions;
-    std::vector<std::string> scienceQuestions;
-    std::vector<std::string> sportsQuestions;
-    std::vector<std::string> rockQuestions;
+    std::vector<std::string> popQuestions{};
+    std::vector<std::string> scienceQuestions{};
+    std::vector<std::string> sportsQuestions{};
+    std::vector<std::string> rockQuestions{};
 
-    unsigned int currentPlayer;
-    bool         isGettingOutOfPenaltyBox;
+    unsigned int currentPlayer{0};
+    bool         isGettingOutOfPenaltyBox{};
 
 public:
     Game();

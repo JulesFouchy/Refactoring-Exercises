@@ -4,7 +4,6 @@
 static constexpr int QUESTIONS_COUNT{50};
 
 Game::Game()
-    : places{}, purses{}, currentPlayer(0)
 {
     for (int i = QUESTIONS_COUNT - 1; i >= 0; i--)
     {
