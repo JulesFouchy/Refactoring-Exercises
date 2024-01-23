@@ -1,8 +1,6 @@
+#pragma once
 #include <string>
 #include <vector>
-
-#ifndef GAME_H_
-#define GAME_H_
 
 class Game {
 private:
@@ -41,5 +39,3 @@ public:
 private:
     bool didPlayerWin();
 };
-
-#endif /* GAME_H_ */
