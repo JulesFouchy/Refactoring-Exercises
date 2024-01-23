@@ -1,8 +1,8 @@
 #include "Game.hpp"
+#include <fmt/format.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include <sstream>
 
 using namespace std;
 
@@ -13,17 +13,13 @@ Game::Game()
 {
     for (int i = 0; i < QUESTIONS_COUNT; i++)
     {
-        ostringstream oss(ostringstream::out);
-        oss << "Pop Question " << i;
+        const std::string str0 = fmt::format("Pop Question {}", i);
+        popQuestions.push_back(str0);
 
-        popQuestions.push_back(oss.str());
-
-        char str[255];
-        sprintf(str, "Science Question %d", i);
+        const std::string str = fmt::format("Science Question {}", i);
         scienceQuestions.push_back(str);
 
-        char str1[255];
-        sprintf(str1, "Sports Question %d", i);
+        const std::string str1 = fmt::format("Sports Question {}", i);
         sportsQuestions.push_back(str1);
 
         rockQuestions.push_back(createRockQuestion(i));
@@ -32,8 +28,7 @@ Game::Game()
 
 string Game::createRockQuestion(int index)
 {
-    char indexStr[127];
-    sprintf(indexStr, "Rock Question %d", index);
+    const std::string indexStr = fmt::format("Rock Question {}", index);
     return indexStr;
 }
 
