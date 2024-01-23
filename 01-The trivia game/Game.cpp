@@ -42,9 +42,9 @@ bool Game::isPlayable()
     return (howManyPlayers() >= 2);
 }
 
-void print_all_player_names(vector<string>* players)
+void print_all_player_names(vector<string>& players)
 {
-    for (const std::string& player_name : *players)
+    for (const std::string& player_name : players)
     {
         printf("They join %s.\n", player_name.c_str());
     }
@@ -54,7 +54,7 @@ bool Game::add(string playerName)
 {
     printf("%s was added\n", playerName.c_str());
     printf("They are player number %zu\n", players.size() + 1);
-    print_all_player_names(&players);
+    print_all_player_names(players);
 
     players.push_back(playerName);
     places[howManyPlayers()]       = 0;
