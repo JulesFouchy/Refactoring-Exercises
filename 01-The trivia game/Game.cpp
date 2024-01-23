@@ -121,25 +121,23 @@ void Game::askQuestion()
 
 std::string Game::currentCategory()
 {
-    if (places[currentPlayer] == 0)
+    switch (places[currentPlayer])
+    {
+    case 0:
+    case 4:
+    case 8:
         return "Pop";
-    if (places[currentPlayer] == 4)
-        return "Pop";
-    if (places[currentPlayer] == 8)
-        return "Pop";
-    if (places[currentPlayer] == 1)
+    case 1:
+    case 5:
+    case 9:
         return "Science";
-    if (places[currentPlayer] == 5)
-        return "Science";
-    if (places[currentPlayer] == 9)
-        return "Science";
-    if (places[currentPlayer] == 2)
+    case 2:
+    case 6:
+    case 10:
         return "Sports";
-    if (places[currentPlayer] == 6)
-        return "Sports";
-    if (places[currentPlayer] == 10)
-        return "Sports";
-    return "Rock";
+    default:
+        return "Rock";
+    }
 }
 
 bool Game::wasCorrectlyAnswered()
