@@ -29,8 +29,8 @@ int main()
     aGame.add("Pat");
     aGame.add("Sue");
 
-    bool notAWinner;
-    do
+    bool notAWinner{true};
+    while (notAWinner)
     {
         aGame.roll(random_int(1, 5));
 
@@ -42,5 +42,5 @@ int main()
         {
             notAWinner = aGame.wasCorrectlyAnswered();
         }
-    } while (notAWinner);
+    }
 }
