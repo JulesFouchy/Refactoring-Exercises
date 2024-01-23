@@ -1,5 +1,6 @@
 #include "Game.hpp"
 #include <fmt/format.h>
+#include <cassert>
 
 static constexpr int QUESTIONS_COUNT{50};
 
@@ -121,22 +122,19 @@ void Game::askQuestion()
 
 std::string Game::currentCategory()
 {
-    switch (places[currentPlayer])
+    switch (places[currentPlayer] % 4)
     {
     case 0:
-    case 4:
-    case 8:
         return "Pop";
     case 1:
-    case 5:
-    case 9:
         return "Science";
     case 2:
-    case 6:
-    case 10:
         return "Sports";
-    default:
+    case 3:
         return "Rock";
+    default:
+        assert(false);
+        return "ERROR";
     }
 }
 
