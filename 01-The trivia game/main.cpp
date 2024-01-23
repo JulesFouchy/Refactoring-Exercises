@@ -7,23 +7,23 @@ static bool notAWinner;
 int main()
 {
     srand(time(NULL));
-    Game* aGame = new Game();
+    Game aGame{};
 
-    aGame->add("Chet");
-    aGame->add("Pat");
-    aGame->add("Sue");
+    aGame.add("Chet");
+    aGame.add("Pat");
+    aGame.add("Sue");
 
     do
     {
-        aGame->roll(rand() % 5 + 1);
+        aGame.roll(rand() % 5 + 1);
 
         if (rand() % 9 == 7)
         {
-            notAWinner = aGame->wrongAnswer();
+            notAWinner = aGame.wrongAnswer();
         }
         else
         {
-            notAWinner = aGame->wasCorrectlyAnswered();
+            notAWinner = aGame.wasCorrectlyAnswered();
         }
     } while (notAWinner);
 }
