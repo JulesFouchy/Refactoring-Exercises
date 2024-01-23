@@ -28,14 +28,12 @@ public:
     size_t howManyPlayers();
     void   roll(int roll);
 
-private:
-    void        askQuestion();
-    std::string currentCategory();
-
-public:
     bool wasCorrectlyAnswered();
     bool wrongAnswer();
 
 private:
+    void        askQuestion();
+    std::string currentCategory();
+
     bool didPlayerWin();
 };
